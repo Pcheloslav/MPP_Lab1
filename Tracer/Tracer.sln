@@ -21,10 +21,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tracer.Serialization.Yaml",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tracer.Core.Tests", "Tracer.Core.Tests\Tracer.Core.Tests.csproj", "{4214958D-410A-4538-920C-9DCD30586E1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tracer.Core", "Tracer.Core\Tracer.Core.csproj", "{91FEABB3-D978-49C3-832F-F94C525155B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tracer.Core", "Tracer.Core\Tracer.Core.csproj", "{91FEABB3-D978-49C3-832F-F94C525155B5}"
 	ProjectSection(ProjectDependencies) = postProject
 		{0354E82C-1761-4EC1-8A99-706F11DE975A} = {0354E82C-1761-4EC1-8A99-706F11DE975A}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tracer.Serialization.Plugins", "Tracer.Serialization.Plugins\Tracer.Serialization.Plugins.csproj", "{1ED407C1-9E2F-4395-A012-11FB4D10F4F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,6 +62,10 @@ Global
 		{91FEABB3-D978-49C3-832F-F94C525155B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91FEABB3-D978-49C3-832F-F94C525155B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91FEABB3-D978-49C3-832F-F94C525155B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1ED407C1-9E2F-4395-A012-11FB4D10F4F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ED407C1-9E2F-4395-A012-11FB4D10F4F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ED407C1-9E2F-4395-A012-11FB4D10F4F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ED407C1-9E2F-4395-A012-11FB4D10F4F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
