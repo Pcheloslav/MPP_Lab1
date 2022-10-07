@@ -72,12 +72,8 @@ namespace Tracer.Serialization.Json
                 DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
             };
 
-            List<JsonThreadTrace> threadTraces = new();
-            foreach (var thread in traceResult.Threads)
-            {
-                threadTraces.Add(new JsonThreadTrace(thread.Id, thread.Time,
-                    JsonMethodTrace.ToJsonMethods(thread.Methods)));
-            }
+            List<JsonThreadTrace> threadTraces = traceResult.Threads.Select(thread => new JsonThreadTrace(
+                thread.Id, thread.Time, JsonMethodTrace.ToJsonMethods(thread.Methods))).ToList();
 
             JsonSerializer.Serialize(to, new JsonTraceResult(threadTraces), options);
         }

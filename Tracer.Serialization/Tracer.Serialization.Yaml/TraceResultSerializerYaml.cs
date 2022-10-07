@@ -32,13 +32,8 @@ namespace Tracer.Serialization.Yaml
                 return null;
             }
 
-            List<YamlMethodTrace> traceMethods = new();
-            foreach (var method in methods)
-            {
-                traceMethods.Add(new YamlMethodTrace(method.MethodName, method.ClassName,
-                    method.Time, ToYamlMethods(method.Methods)));
-            }
-            return traceMethods;
+            return methods.Select(method => new YamlMethodTrace(
+                method.MethodName, method.ClassName, method.Time, ToYamlMethods(method.Methods))).ToList();
         }
     }
 
@@ -73,27 +68,16 @@ namespace Tracer.Serialization.Yaml
 
         public void Serialize(TraceResult traceResult, Stream to)
         {
-            /*var options = new YamlSerializerOptions
-            {
-                WriteIndented = true,
-                DefaultIgnoreCondition = YamlIgnoreCondition.WhenWritingNull
-            };*/
+            List<YamlThreadTrace> threadTraces = traceResult.Threads.Select(thread => new YamlThreadTrace(
+                thread.Id, thread.Time, YamlMethodTrace.ToYamlMethods(thread.Methods))).ToList();
 
-            List<YamlThreadTrace> threadTraces = new();
-            foreach (var thread in traceResult.Threads)
-            {
-                threadTraces.Add(new YamlThreadTrace(thread.Id, thread.Time,
-                    YamlMethodTrace.ToYamlMethods(thread.Methods)));
-            }
-
-            var serializer = new SerializerBuilder()//.WithNamingConvention(CamelCaseNamingConvention.Instance)
-                           .Build();
+            var serializer = new SerializerBuilder().
+                WithNamingConvention(new CamelCaseNamingConvention()).Build();
 
             var yaml = serializer.Serialize(new YamlTraceResult(threadTraces));
             var sw = new StreamWriter(to);
-            sw.Write(yaml);
+            serializer.Serialize(sw, new YamlTraceResult(threadTraces));
             sw.Flush();
-            //YamlSerializer.Serialize(to, new YamlTraceResult(threadTraces), options);
         }
     }
 }
