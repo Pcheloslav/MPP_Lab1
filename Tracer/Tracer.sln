@@ -8,6 +8,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tracer.Example", "Tracer.Example\Tracer.Example.csproj", "{B83F7495-33A0-48D7-82C2-BA552FA8E15E}"
 	ProjectSection(ProjectDependencies) = postProject
 		{0354E82C-1761-4EC1-8A99-706F11DE975A} = {0354E82C-1761-4EC1-8A99-706F11DE975A}
+		{405CC16C-DECD-4BF3-8B44-72361D0B1054} = {405CC16C-DECD-4BF3-8B44-72361D0B1054}
+		{47E86074-04D0-4C96-89EC-1CC325D83C7D} = {47E86074-04D0-4C96-89EC-1CC325D83C7D}
 		{61686A8E-FE15-4398-A3C6-9AACF85E6AB4} = {61686A8E-FE15-4398-A3C6-9AACF85E6AB4}
 	EndProjectSection
 EndProject
@@ -16,8 +18,14 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tracer.Serialization.Json", "..\Tracer.Serialization\Tracer.Serialization.Json\Tracer.Serialization.Json.csproj", "{61686A8E-FE15-4398-A3C6-9AACF85E6AB4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tracer.Serialization.Xml", "..\Tracer.Serialization\Tracer.Serialization.Xml\Tracer.Serialization.Xml.csproj", "{405CC16C-DECD-4BF3-8B44-72361D0B1054}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0354E82C-1761-4EC1-8A99-706F11DE975A} = {0354E82C-1761-4EC1-8A99-706F11DE975A}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tracer.Serialization.Yaml", "..\Tracer.Serialization\Tracer.Serialization.Yaml\Tracer.Serialization.Yaml.csproj", "{47E86074-04D0-4C96-89EC-1CC325D83C7D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0354E82C-1761-4EC1-8A99-706F11DE975A} = {0354E82C-1761-4EC1-8A99-706F11DE975A}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tracer.Core.Tests", "Tracer.Core.Tests\Tracer.Core.Tests.csproj", "{4214958D-410A-4538-920C-9DCD30586E1D}"
 EndProject
@@ -26,7 +34,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tracer.Core", "Tracer.Core\
 		{0354E82C-1761-4EC1-8A99-706F11DE975A} = {0354E82C-1761-4EC1-8A99-706F11DE975A}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tracer.Serialization.Plugins", "Tracer.Serialization.Plugins\Tracer.Serialization.Plugins.csproj", "{1ED407C1-9E2F-4395-A012-11FB4D10F4F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tracer.Serialization.Plugins", "Tracer.Serialization.Plugins\Tracer.Serialization.Plugins.csproj", "{1ED407C1-9E2F-4395-A012-11FB4D10F4F8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0354E82C-1761-4EC1-8A99-706F11DE975A} = {0354E82C-1761-4EC1-8A99-706F11DE975A}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
