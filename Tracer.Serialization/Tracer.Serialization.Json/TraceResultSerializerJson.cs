@@ -14,30 +14,24 @@ namespace Tracer.Serialization.Json
         [JsonPropertyName("name")] public string MethodName { get; }
         [JsonPropertyName("class")] public string ClassName { get; }
         [JsonPropertyName("time")] public string Time { get; }
-        [JsonPropertyName("methods")] public List<JsonMethodTrace> Methods { get; }
+        [JsonPropertyName("methods")] public IEnumerable<JsonMethodTrace> Methods { get; }
 
-        internal JsonMethodTrace(string methodName, string className, long time, List<JsonMethodTrace> methods)
+        internal JsonMethodTrace(string methodName, string className, long time, IEnumerable<JsonMethodTrace> methods)
         {
             MethodName = methodName;
             ClassName = className;
-            Time = String.Format("{0}ms", time);
+            Time = string.Format("{0}ms", time);
             Methods = methods;
         }
 
-        internal static List<JsonMethodTrace> ToJsonMethods(IReadOnlyList<MethodTrace> methods)
+        internal static IEnumerable<JsonMethodTrace> ToJsonMethods(IReadOnlyList<MethodTrace> methods)
         {
             if (methods.Count == 0)
             {
                 return null;
             }
-
-            List<JsonMethodTrace> traceMethods = new();
-            foreach (var method in methods)
-            {
-                traceMethods.Add(new JsonMethodTrace(method.MethodName, method.ClassName,
-                    method.Time, ToJsonMethods(method.Methods)));
-            }
-            return traceMethods;
+            return methods.Select(method => new JsonMethodTrace(
+                method.MethodName, method.ClassName, method.Time, ToJsonMethods(method.Methods)));
         }
     }
 
@@ -45,12 +39,12 @@ namespace Tracer.Serialization.Json
     {
         [JsonPropertyName("id")] public string Id { get; }
         [JsonPropertyName("time")] public string Time { get; }
-        [JsonPropertyName("methods")] public List<JsonMethodTrace> Methods { get; }
+        [JsonPropertyName("methods")] public IEnumerable<JsonMethodTrace> Methods { get; }
 
-        internal JsonThreadTrace(int id, long time, List<JsonMethodTrace> methods)
+        internal JsonThreadTrace(int id, long time, IEnumerable<JsonMethodTrace> methods)
         {
             Id = id.ToString();
-            Time = String.Format("{0}ms", time);
+            Time = string.Format("{0}ms", time);
             Methods = methods;
         }
     }
