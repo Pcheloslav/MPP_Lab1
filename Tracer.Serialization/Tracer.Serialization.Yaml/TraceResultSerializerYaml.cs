@@ -63,7 +63,7 @@ namespace Tracer.Serialization.Yaml
 
     public class TraceResultSerializerYaml : ITraceResultSerializer
     {
-        private string _format = "Yaml";
+        private string _format = "yaml";
         public string Format => _format;
 
         public void Serialize(TraceResult traceResult, Stream to)

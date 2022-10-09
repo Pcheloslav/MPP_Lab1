@@ -7,10 +7,10 @@ using Tracer.Core;
 
 namespace Tracer.Example
 {
-    internal class TestClass
+    internal class TestClass1
     {
         private ITracer _tracer;
-        internal TestClass(ITracer tracer)
+        internal TestClass1(ITracer tracer)
         {
             _tracer = tracer;
         }
@@ -37,6 +37,38 @@ namespace Tracer.Example
             Thread.Sleep(300);
             _tracer.StopTrace();
         }
+    }
 
+    public class TestClass2
+    {
+        private ITracer _tracer;
+
+        public TestClass2(ITracer tracer)
+        {
+            _tracer = tracer;
+        }
+
+        public void M1()
+        {
+            _tracer.StartTrace();
+            Thread.Sleep(100);
+            M2();
+            M3();
+            _tracer.StopTrace();
+        }
+
+        public void M2()
+        {
+            _tracer.StartTrace();
+            Thread.Sleep(200);
+            _tracer.StopTrace();
+        }
+
+        public void M3()
+        {
+            _tracer.StartTrace();
+            Thread.Sleep(200);
+            _tracer.StopTrace();
+        }
     }
 }
