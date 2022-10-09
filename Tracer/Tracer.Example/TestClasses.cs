@@ -7,15 +7,15 @@ using Tracer.Core;
 
 namespace Tracer.Example
 {
-    internal class TestClass1
+    public class TestClass1
     {
         private ITracer _tracer;
-        internal TestClass1(ITracer tracer)
+        public TestClass1(ITracer tracer)
         {
             _tracer = tracer;
         }
 
-        internal void M1()
+        public void M1()
         {
             _tracer.StartTrace();
             M2();
@@ -23,7 +23,7 @@ namespace Tracer.Example
             _tracer.StopTrace();
         }
 
-        internal void M2()
+        public void M2()
         {
             _tracer.StartTrace();
             Thread.Sleep(200);
@@ -31,7 +31,7 @@ namespace Tracer.Example
             _tracer.StopTrace();
         }
 
-        internal void M3()
+        public void M3()
         {
             _tracer.StartTrace();
             Thread.Sleep(300);

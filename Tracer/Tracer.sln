@@ -29,6 +29,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tracer.Serialization.Yaml",
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tracer.Core.Tests", "Tracer.Core.Tests\Tracer.Core.Tests.csproj", "{4214958D-410A-4538-920C-9DCD30586E1D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B83F7495-33A0-48D7-82C2-BA552FA8E15E} = {B83F7495-33A0-48D7-82C2-BA552FA8E15E}
+		{91FEABB3-D978-49C3-832F-F94C525155B5} = {91FEABB3-D978-49C3-832F-F94C525155B5}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tracer.Core", "Tracer.Core\Tracer.Core.csproj", "{91FEABB3-D978-49C3-832F-F94C525155B5}"
 	ProjectSection(ProjectDependencies) = postProject
